@@ -1,7 +1,9 @@
 #!/bin/sh
 
-sudo apt-get install apache2
-sudo git clone https://github.com/pmav/game-of-life.git
-sudo mv game-of-life/* /var/www/html
-
-
+ssh ubuntu@ec2-52-43-166-47.us-west-2.compute.amazonaws.com <<EOF
+  sudo apt-get install apache2
+  git init 
+  git pull https://github.com/JamAMarmalade/Jenkin.git
+  sudo cp -rf Jenkin/* /var/www/html
+  exit
+EOF
